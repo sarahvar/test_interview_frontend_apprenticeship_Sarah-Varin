@@ -1,34 +1,41 @@
-// Tâche 1: Fonction pour obtenir les nombres pairs
-function getEvenNumbers(arr) {
-  return arr.filter(num => num % 2 === 0);
-}
-
-// Exemple d'utilisation de la fonction getEvenNumbers
-const numbers = [1, 2, 3, 4, 5, 6];
-console.log(getEvenNumbers(numbers)); // [2, 4, 6]
-
-// Tâche 2: Interaction avec le DOM
 document.addEventListener('DOMContentLoaded', () => {
-  const button = document.getElementById('changeTextButton');
-  const textElement = document.getElementById('myText');
+  // Task 1: Array Manipulation
+  function getEvenNumbers(numbers) {
+    return numbers.filter(number => number % 2 === 0);
+  }
 
-  button.addEventListener('click', () => {
-    textElement.textContent = 'Hello, Check !';
+  // Exemples d'utilisation de la fonction getEvenNumbers
+  const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const evenNumbers = getEvenNumbers(numbersArray);
+
+  // Affichage des nombres pairs dans le HTML
+  const evenNumbersList = document.getElementById('evenNumbersList');
+  evenNumbers.forEach(number => {
+    const listItem = document.createElement('li');
+    listItem.textContent = number;
+    evenNumbersList.appendChild(listItem);
   });
 
-  // Tâche 3: Requête Fetch basique
-  fetch('datas.json')
+  // Task 2: DOM Interaction
+  const changeTextButton = document.getElementById('changeTextButton');
+  const myText = document.getElementById('myText');
+
+  changeTextButton.addEventListener('click', () => {
+    myText.textContent = 'Hello, Check!';
+  });
+
+  // Task 3: Basic Fetch
+  fetch('https://jsonplaceholder.typicode.com/todos')
     .then(response => response.json())
     .then(data => {
-      const todos = data.slice(0, 5); // Prendre les 5 premiers todos
-      const ul = document.getElementById('todoList');
+      const todoList = document.getElementById('todoList');
+      const firstFiveTodos = data.slice(0, 5);
 
-      todos.forEach(todo => {
-        const li = document.createElement('li');
-        li.textContent = todo.title;
-        ul.appendChild(li);
+      firstFiveTodos.forEach(todo => {
+        const listItem = document.createElement('li');
+        listItem.textContent = todo.title;
+        todoList.appendChild(listItem);
       });
     })
-    .catch(error => console.error('Erreur lors du fetch des todos:', error));
+    .catch(error => console.error('Error fetching todos:', error));
 });
-
