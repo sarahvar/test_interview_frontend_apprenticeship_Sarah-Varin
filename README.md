@@ -1,3 +1,9 @@
+## Pour voir le test JavaScript réaliser :
+1. ** Cloner le projet**
+2. Ouvrir le dossier choisit (javascript-vite ou react-vite)
+3. npm install
+4. npm run dev
+
 # Check Front-End Developer Apprenticeship Technical Assessment
 
 Welcome to the Check Front-End Developer Apprenticeship Technical Assessment
@@ -35,9 +41,4 @@ We're excited to see your work! If you have any questions, feel free to reach ou
 
 **The Check Team**# test_interview_frontend_apprenticeship_Sarah-Varin
 # test_interview_frontend_apprenticeship_Sarah-Varin
-## Pour voir le test JavaScript réaliser :
-1. ** Cloner le projet**
-2. Ouvrir le dossier choisit (javascript-vite ou react-vite)
-3. npm install
-4. npm run dev
 
