@@ -1,41 +1,66 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Task 1: Array Manipulation
+  // ## Tâche 1: Manipulation de Tableau
+  // Fonction pour obtenir les nombres pairs d'un tableau
   function getEvenNumbers(numbers) {
-    return numbers.filter(number => number % 2 === 0);
+    return numbers.filter(number => number % 2 === 0); // Filtrer les nombres pairs
   }
 
-  // Exemples d'utilisation de la fonction getEvenNumbers
-  const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  const evenNumbers = getEvenNumbers(numbersArray);
+  // Fonction pour afficher les nombres pairs dans une liste
+  function displayEvenNumbers() {
+    const sampleNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // Tableau d'exemple
+    const evenNumbers = getEvenNumbers(sampleNumbers); // Obtenir les nombres pairs
+    const evenNumbersList = document.getElementById('evenNumbersList'); // Sélectionner l'élément de la liste
 
-  // Affichage des nombres pairs dans le HTML
-  const evenNumbersList = document.getElementById('evenNumbersList');
-  evenNumbers.forEach(number => {
-    const listItem = document.createElement('li');
-    listItem.textContent = number;
-    evenNumbersList.appendChild(listItem);
-  });
+    // Effacer le contenu existant de la liste
+    evenNumbersList.innerHTML = '';
 
-  // Task 2: DOM Interaction
-  const changeTextButton = document.getElementById('changeTextButton');
-  const myText = document.getElementById('myText');
+    // Ajouter chaque nombre pair à la liste
+    evenNumbers.forEach(number => {
+      const li = document.createElement('li'); // Créer un élément de liste
+      li.textContent = number; // Définir le texte de l'élément de liste
+      evenNumbersList.appendChild(li); // Ajouter l'élément à la liste
+    });
+  }
 
-  changeTextButton.addEventListener('click', () => {
-    myText.textContent = 'Hello, Check!';
-  });
+  // ## Tâche 2: Interaction avec le DOM
+  // Fonction pour changer le texte de l'élément avec id 'myText'
+  function changeText() {
+    const textElement = document.getElementById('myText'); // Sélectionner l'élément du texte
+    textElement.textContent = 'Hello, Check!'; // Changer le texte
+  }
 
-  // Task 3: Basic Fetch
-  fetch('https://jsonplaceholder.typicode.com/todos')
-    .then(response => response.json())
-    .then(data => {
-      const todoList = document.getElementById('todoList');
-      const firstFiveTodos = data.slice(0, 5);
+  // Ajouter un écouteur d'événements au bouton pour changer le texte
+  const changeTextButton = document.getElementById('changeTextButton'); // Sélectionner le bouton
+  changeTextButton.addEventListener('click', changeText); // Ajouter un événement 'click' au bouton
 
-      firstFiveTodos.forEach(todo => {
-        const listItem = document.createElement('li');
-        listItem.textContent = todo.title;
-        todoList.appendChild(listItem);
+  // ## Tâche 3: Récupération des Todos
+  // Fonction pour récupérer et afficher les titres des 5 premiers todos
+  function fetchTodos() {
+    const apiUrl = 'datas.json'; // Fichier de l'API
+
+    fetch(apiUrl)
+      .then(response => response.json()) // Convertir la réponse en JSON
+      .then(data => {
+        // Prendre les 5 premiers todos
+        const firstFiveTodos = data.slice(0, 5);
+        const todoList = document.getElementById('todoList'); // Sélectionner l'élément de la liste
+
+        // Effacer le contenu existant de la liste
+        todoList.innerHTML = '';
+
+        // Ajouter chaque todo à la liste
+        firstFiveTodos.forEach(todo => {
+          const li = document.createElement('li'); // Créer un élément de liste
+          li.textContent = todo.title; // Définir le texte de l'élément de liste
+          todoList.appendChild(li); // Ajouter l'élément à la liste
+        });
+      })
+      .catch(error => {
+        console.error('Erreur lors de la récupération des todos:', error); // Gérer les erreurs
       });
-    })
-    .catch(error => console.error('Error fetching todos:', error));
+  }
+
+  // Appeler les fonctions pour afficher les todos et les nombres pairs
+  fetchTodos(); // Récupérer et afficher les todos
+  displayEvenNumbers(); // Afficher les nombres pairs
 });
