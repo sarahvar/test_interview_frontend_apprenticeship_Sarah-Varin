@@ -39,4 +39,5 @@ We're excited to see your work! If you have any questions, feel free to reach ou
 1. ** Cloner le projet**
 2. Ouvrir le dossier choisit (javascript-vite ou react-vite)
 3. npm install
+4. npm run dev
 
