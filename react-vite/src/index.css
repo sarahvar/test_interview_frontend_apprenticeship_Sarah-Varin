@@ -69,7 +69,6 @@ button:focus-visible {
   }
 }
 
-/* Appliquer le curseur pointer aux éléments de liste */
 li {
   cursor: pointer;
 }
