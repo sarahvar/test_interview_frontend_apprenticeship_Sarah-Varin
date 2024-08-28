@@ -1,8 +1,9 @@
-## Pour voir le test JavaScript réaliser :
-1. Cloner le projet
-2. Ouvrir le dossier choisit (javascript-vite ou react-vite)
-3. npm install
-4. npm run dev
+## To view the JavaScript test:
+
+1. Clone the project
+2. Open the chosen folder (javascript-vite or react-vite)
+3. Run `npm install`
+4. Run `npm run dev`
 
 # Check Front-End Developer Apprenticeship Technical Assessment
 
