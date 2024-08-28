@@ -1,13 +1,12 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 
-// Liste des noms
-const names = ['Alice', 'Bob', 'Charlie', 'David'];
-
-const NameList = ({ onNameClick }) => {
+// Task 3: List Rendering
+// Given an array of names, render a list of names with each name clickable.
+// The component should call the `onNameClick` callback with the name when clicked.
+const NameList = ({ names, onNameClick }) => {
   return (
     <ul>
       {names.map((name, index) => (
-        // Task 3: Rendu de la liste des noms et gestion du clic sur chaque nom
         <li key={index} onClick={() => onNameClick(name)}>
           {name}
         </li>
@@ -16,5 +15,10 @@ const NameList = ({ onNameClick }) => {
   );
 };
 
+// PropTypes validation for the `names` and `onNameClick` props
+NameList.propTypes = {
+  names: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onNameClick: PropTypes.func.isRequired,
+};
+
 export default NameList;
-;

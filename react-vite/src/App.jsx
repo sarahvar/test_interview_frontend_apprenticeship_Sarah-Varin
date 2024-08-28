@@ -2,37 +2,30 @@ import { useState, useEffect } from 'react';
 import Greeting from './Greeting';
 import NameList from './NameList';
 import Counter from './Counter';
+import { names } from './Names';
 
-// Liste des noms
-const names = ['Alice', 'Bob', 'Charlie', 'David'];
-
+// The `App` component integrates `Greeting`, `NameList`, and `Counter` components.
+// It manages the state for the selected name and provides a function to update the name when an item in the list is clicked.
 const App = () => {
-  // Fonction pour obtenir un prénom aléatoire
   const getRandomName = () => {
     const randomIndex = Math.floor(Math.random() * names.length);
     return names[randomIndex];
   };
 
-  // État pour le nom sélectionné
   const [selectedName, setSelectedName] = useState('');
 
-  // Met à jour le nom sélectionné avec un prénom aléatoire lors du premier rendu
   useEffect(() => {
     setSelectedName(getRandomName());
   }, []);
 
-  // Fonction de rappel pour mettre à jour le nom sélectionné
   const handleNameClick = (name) => {
     setSelectedName(name);
   };
 
   return (
     <div>
-      {/* Task 1: Passer le nom sélectionné comme prop au composant Greeting */}
       <Greeting name={selectedName} />
-      {/* Task 3: Passer la fonction de rappel à NameList */}
-      <NameList onNameClick={handleNameClick} />
-      {/* Task 2: Ajouter le composant Counter */}
+      <NameList names={names} onNameClick={handleNameClick} />
       <Counter />
     </div>
   );
