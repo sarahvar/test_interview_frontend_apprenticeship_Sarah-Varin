@@ -1,5 +1,5 @@
 ## Pour voir le test JavaScript réaliser :
-1. ** Cloner le projet**
+1. Cloner le projet
 2. Ouvrir le dossier choisit (javascript-vite ou react-vite)
 3. npm install
 4. npm run dev
