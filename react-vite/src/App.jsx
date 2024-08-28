@@ -1,4 +1,3 @@
-// src/App.jsx
 import { useState, useEffect } from 'react';
 import Greeting from './Greeting';
 import NameList from './NameList';
