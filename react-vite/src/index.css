@@ -1,5 +1,3 @@
-/* src/styles.css */
-
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -45,12 +43,12 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #e0e0e0; /* Couleur légèrement plus foncée que #f9f9f9 */
+  background-color: #e0e0e0;
   cursor: pointer;
   transition: background-color 0.25s, border-color 0.25s;
 }
 button:hover {
-  background-color: #d0d0d0; /* Couleur encore plus foncée lors du survol */
+  background-color: #d0d0d0;
   border-color: #646cff;
 }
 button:focus,
@@ -67,8 +65,11 @@ button:focus-visible {
     color: #747bff;
   }
   button {
-    background-color: #e0e0e0; /* Garder le bouton plus foncé en mode clair */
+    background-color: #e0e0e0;
   }
 }
 
-
+/* Appliquer le curseur pointer aux éléments de liste */
+li {
+  cursor: pointer;
+}
